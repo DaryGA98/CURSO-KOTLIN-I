@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 
-    // En esta clase usamos MainActivity y Dice para ejecutar nuestra proyecto de "DADO"//
+// En esta clase usamos MainActivity y Dice para ejecutar nuestra proyecto de "DADO"//
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,16 +45,16 @@ class MainActivity : AppCompatActivity() {
             3 -> println("Unfortunately, you rolled a 3. Try again!")
             5 -> println("Don't cry! You rolled a 5. Try again!")
             6 -> println("Apologies! You rolled a 6. Try again!")
-            else -> println ("Sorry you have lose, try again")
+            else -> println("Sorry you have lose, try again")
 
         }
 
     }
 }
 
-    // Aprendimos a mostrar el resultado de RollDice en pantalla//
-    class Dice(val numSides: Int) {
-        fun roll(): Int {
-            return (1..numSides).random()
-        }
+// Aprendimos a mostrar el resultado de RollDice en pantalla//
+class Dice(val numSides: Int) {
+    fun roll(): Int {
+        return (1..numSides).random()
     }
+}
