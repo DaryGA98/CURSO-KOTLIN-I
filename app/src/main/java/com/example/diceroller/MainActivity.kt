@@ -3,6 +3,7 @@ package com.example.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -15,8 +16,8 @@ class MainActivity : AppCompatActivity() {
         // En esta parte aprendimos a invocar los elementos por ID y Asignarle un valor//
         val rollButton: Button = findViewById(R.id.button)
         rollButton.setOnClickListener {
-            //rollDice()
-            main()
+            rollDice()
+
 
 
         }
@@ -25,17 +26,28 @@ class MainActivity : AppCompatActivity() {
     // Aprendimos a crear un DICE con 6 lados y tirarlo (roll)//
 
     private fun rollDice() {
-        val dice = Dice(8)
+        val dice = Dice(6)
         val diceRoll = dice.roll()
-        val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = diceRoll.toString()
+        val diceImage: ImageView = findViewById(R.id.imageView)
+
+        val drawableResource = when (diceRoll) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+
+        diceImage.setImageResource(drawableResource)
+
+
     }
 
     fun main() {
         val myFirstDice = Dice(8)
         val rollResult = myFirstDice.roll()
-        val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = rollResult.toString()
+
         val luckyNumber = 4
 
         when (rollResult) {
@@ -57,4 +69,5 @@ class Dice(val numSides: Int) {
     fun roll(): Int {
         return (1..numSides).random()
     }
+
 }
